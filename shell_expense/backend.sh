@@ -49,7 +49,7 @@ unzip /tmp/backend.zip &>> $LOG_FILE
 echo -e "$G App file unziped... $N" | tee -a $LOG_FILE
 npm install &>> $LOG_FILE
 echo -e "$G Dependencies downloaded $N" | tee -a $LOG_FILE
-cp /home/ec2-user/etc/systemd/system/backend.service # need to set path
+cp /home/ec2-user/shell_script/shell_expense/backend.service /etc/systemd/system/backend.service # need to set path
 
 dnf install mysql -y &>> $LOG_FILE
 VALIDATE $? "mysql server installation"

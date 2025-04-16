@@ -43,8 +43,8 @@ VALIDATE $? "mysql-server started"
 mysql -h 172.31.27.130 -u root -pExpenseApp@1 -e 'show databases'  &>> $LOG_FILE  #change host adress acording to server   
 if [ $? -ne 0 ]
 then
-    echo -e "$G setting mysql server password...$N" | tee -a $LOG_FILE
+    echo -e "Setting mysql server $G password...$N" | tee -a $LOG_FILE
     mysql_secure_installation --set-root-pass ExpenseApp@1 &>> $LOG_FILE
 else
-    echo -e "$G Already mysql server password setting completed...$N" | tee -a $LOG_FILE
+    echo -e "Already mysql server password setting $G completed...$N" | tee -a $LOG_FILE
 fi
