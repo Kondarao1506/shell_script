@@ -1,12 +1,11 @@
 #!/bin/bash
-R="\e[m31"
-G="\e[m32"
-N="\e[m0"
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
 FOLDER_PATH="/var/log/expense_logs/"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 TIME_STAMP=$(date +%Y-%M-%D %H-%M-%S)
 LOG_FILE="$FOLDER_PATH/$SCRIPT_NAME-$TIME_STAMP.log"
-mkdir -p $FOLDER_PATH
 USERID=$(id -u)
 ROOT(){
  if [ $USERID -ne 0 ]
@@ -24,6 +23,7 @@ VALIDATE(){
     fi
 }
 ROOT
+mkdir -p $FOLDER_PATH
 echo -e "Scripting has $G started....$N $(date)" | tee -a $LOG_FILE
 
 dnf install nginx -y  &>> $LOG_FILE
