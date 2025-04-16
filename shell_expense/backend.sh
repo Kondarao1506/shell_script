@@ -54,10 +54,10 @@ cp /home/ec2-user/shell_script/shell_expense/backend.service /etc/systemd/system
 
 dnf install mysql -y &>> $LOG_FILE
 VALIDATE $? "mysql server installation"
-mysql -h 172.31.27.130 -uroot -pExpenseApp@1 < /app/schema/backend.sql # need to set ip address
+mysql -h 172.31.27.130 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>> $LOG_FILE # need to set ip address
 
-systemctl daemon-reload
-systemctl start backend
-systemctl enable backend
-systemctl restart backend
+systemctl daemon-reload &>> $LOG_FILE
+systemctl start backend &>> $LOG_FILE
+systemctl enable backend &>> $LOG_FILE
+systemctl restart backend &>> $LOG_FILE
 echo -e "Bckend .....$G RESTARTED$N" | tee -a $LOG_FILE
