@@ -4,7 +4,7 @@ G="\e[m32"
 N="\e[m0"
 FOLDER_PATH="/var/log/expense_logs/"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-TIME_STAMP=$(date +%Y-%M-%D %H-%M-%S)
+TIME_STAMP=$(date +%Y-%M-%D-%H-%M-%S)
 LOG_FILE="$FOLDER_PATH/$SCRIPT_NAME-$TIME_STAMP.log"
 USERID=$(id -u)
 ROOT(){
