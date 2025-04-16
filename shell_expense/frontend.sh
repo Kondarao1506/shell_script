@@ -28,7 +28,7 @@ echo -e "Scripting has $G started....$N $(date)" | tee -a $LOG_FILE
 
 dnf install nginx -y  &>> $LOG_FILE
 VALIDATE $? "NGINX installation"
-systemctl enable nginx
+systemctl enable nginx &>> $LOG_FILE
  echo -e "NGINX $G Enabled... $N " | tee -a $LOG_FILE
 systemctl start nginx
 echo -e "NGINX $G started... $N " | tee -a $LOG_FILE
