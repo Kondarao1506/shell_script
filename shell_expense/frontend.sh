@@ -10,7 +10,7 @@ USERID=$(id -u)
 ROOT(){
  if [ $USERID -ne 0 ]
  then
-  echo -e "$R RUN THE FILE WITH sudo sh $0.sh $N " | tee -a $LOG_FILE
+  echo -e "$R RUN THE FILE WITH sudo sh $0.sh $N "
   exit 1
   fi
 }
