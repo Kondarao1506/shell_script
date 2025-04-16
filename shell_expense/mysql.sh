@@ -6,7 +6,6 @@ FOLDER_PATH="/var/log/expense_logs/"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 TIME_STAMP=$(date +%Y-%M-%D %H-%M-%S)
 LOG_FILE="$FOLDER_PATH/$SCRIPT_NAME-$TIME_STAMP.log"
-mkdir -p $FOLDER_PATH
 USERID=$(id -u)
 ROOT(){
  if [ $USERID -ne 0 ]
@@ -22,6 +21,7 @@ VALIDATE(){
         echo -e "$2...$R SUCCESS $N " | tee -a $LOG_FILE
 }
 ROOT
+mkdir -p $FOLDER_PATH
 echo -e "Scripting has $G started....$N $(date)" | tee -a $LOG_FILE
 dnf list installed mysql-server -y &>> $LOG_FILE
 if [$? -ne 0]
