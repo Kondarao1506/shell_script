@@ -4,7 +4,7 @@ G="\e[32m"
 N="\e[0m"
 FOLDER_PATH="/var/log/expense_logs/"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-TIME_STAMP=$(date +%Y-%M-%D %H-%M-%S)
+TIME_STAMP=$(date +%D)
 LOG_FILE="$FOLDER_PATH/$SCRIPT_NAME-$TIME_STAMP.log"
 USERID=$(id -u)
 ROOT(){
@@ -39,6 +39,6 @@ echo -e "project files $G downloaded... $N " | tee -a $LOG_FILE
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip &>> $LOG_FILE
 echo -e "download files $G Unzipped... $N " | tee -a $LOG_FILE
-cp /etc/nginx/default.d/expense.conf #need to set path
+cp /home/ec2-user/shell_script/shell_expense/expense.conf /etc/nginx/default.d/expense.conf #need to set path
 systemctl restart nginx
 echo -e "NGINX $G Restarted... $N " | tee -a $LOG_FILE
