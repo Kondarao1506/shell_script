@@ -25,15 +25,15 @@ VALIDATE(){
 ROOT
 mkdir -p $FOLDER_PATH
 echo -e "Scripting has $G started....$N $(date)" | tee -a $LOG_FILE
-dnf list installed mysql-server -y &>> $LOG_FILE
-if [$? -ne 0]
-then
-    echo -e "$R mysql-server $N not installed $G going to installing...$N" | tee -a $LOG_FILE
-    dnf install mysql-server -y &>> $LOG_FILE
-    VALIDATE $? "mysql-server installation" 
-else
-    echo -e "mysql-server $G already installed... $N" | tee -a $LOG_FILE
-fi
+# dnf list installed mysql-server -y &>> $LOG_FILE
+# if [$? -ne 0]
+# then
+#     echo -e "$R mysql-server $N not installed $G going to installing...$N" | tee -a $LOG_FILE
+dnf install mysql-server -y &>> $LOG_FILE
+VALIDATE $? "mysql-server installation" 
+# else
+#     echo -e "mysql-server $G already installed... $N" | tee -a $LOG_FILE
+# fi
 systemctl enable mysqld &>> $LOG_FILE 
 VALIDATE $? "mysql-server enabled"
 
