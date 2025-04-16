@@ -2,7 +2,7 @@
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
-FOLDER_PATH="/var/log/expense_logs/"
+FOLDER_PATH="/var/log/expense_logs"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 TIME_STAMP=$(date +%Y-%M-%D-%H-%M-%S)
 LOG_FILE="$FOLDER_PATH/$SCRIPT_NAME-$TIME_STAMP.log"
