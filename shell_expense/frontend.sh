@@ -20,6 +20,7 @@ VALIDATE(){
         echo -e "$2...$R FAILED $N " | tee -a $LOG_FILE
     else
         echo -e "$2...$R SUCCESS $N " | tee -a $LOG_FILE
+    fi
 }
 ROOT
 echo -e "Scripting has $G started....$N $(date)" | tee -a $LOG_FILE
