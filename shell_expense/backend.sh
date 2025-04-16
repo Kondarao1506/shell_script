@@ -52,7 +52,7 @@ cp /home/ec2-user/etc/systemd/system/backend.service # need to set path
 
 dnf install mysql -y &>> $LOG_FILE
 VALIDATE $? "mysql server installation"
-mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql # need to set ip address
+mysql -h 172.31.27.130 -uroot -pExpenseApp@1 < /app/schema/backend.sql # need to set ip address
 
 systemctl daemon-reload
 systemctl start backend

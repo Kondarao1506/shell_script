@@ -38,7 +38,7 @@ VALIDATE $? "mysql-server enabled"
 systemctl start mysqld &>> $LOG_FILE
 VALIDATE $? "mysql-server started"
 
-mysql -h <host-address> -u root -pExpenseApp@1 -e 'show databases'  &>> $LOG_FILE  #change host adress acording to server   
+mysql -h 172.31.27.130 -u root -pExpenseApp@1 -e 'show databases'  &>> $LOG_FILE  #change host adress acording to server   
 if [ $? -ne 0 ]
 then
     echo -e "$G setting mysql server password...$N" | tee -a $LOG_FILE
