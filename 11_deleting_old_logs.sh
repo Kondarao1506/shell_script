@@ -18,6 +18,7 @@ else
     exit 1
 fi
 FILE=$(find $FILE_DIRECTORY -name "*.log" -mtime +14)
+echo "$FILE"
 while IFS= read -r lin
 do
 echo -e "$lin $G deleting...$N"
