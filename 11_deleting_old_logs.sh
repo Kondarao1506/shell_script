@@ -17,7 +17,7 @@ else
     echo -e "$FILE_DIRECTORY $R NOT Exists...$N"
     exit 1
 fi
-FILE=$(find $FILE_DIRECTORY -name "*.log")
+FILE=$(find $FILE_DIRECTORY -name "*.log" -mtime +14)
 echo "$FILE"
 while IFS= read -r lin
 do
