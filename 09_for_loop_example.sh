@@ -6,7 +6,7 @@ USERID=$(id -u)
 # /var/log/script_logs/filename-timestamp.log we have create this path 
 FOLDER_PATH="/var/log/script_logs"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-TIME=$(date +%Y-%M-%D -%h-%m-%s)
+TIME=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE=$FOLDER_PATH/$SCRIPT_NAME-$TIME.log
 mkdir -p $FOLDER_PATH #here p indicates already present or not if present it will not show error.
 VALIDATE(){
@@ -31,7 +31,7 @@ then
  USAGE
 fi
 echo -e "$G Scripting $N execution is started..... $(date)" | tee -a $LOG_FILE
-for package in $@
+for package in $@ # all the arguments passig here $@
 do
 dnf list installed $package &>> $LOG_FILE
 if [$? -ne 0 ]
