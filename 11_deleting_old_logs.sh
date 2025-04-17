@@ -6,7 +6,7 @@ USERID=$(id -u)
 
 if [ $USERID -ne 0 ]
 then
-    echo "PLEASE RUN WITH ROOT PRIVILAGES $R sudo sh $0.sh $N"
+    echo -e "PLEASE RUN WITH ROOT PRIVILAGES $R sudo sh $0.sh $N"
     exit 1
 fi
 FILE_DIRECTORY=" /var/log/applogs"
@@ -18,7 +18,7 @@ else
     exit 1
 fi
 FILE=$(find $FILE_DIRECTORY -name "*.log" -mtime +14)
-while IFS -r lin
+while IFS= read -r lin
 do
 echo -e "$lin $G deleting...$N"
 rm -rf $lin
