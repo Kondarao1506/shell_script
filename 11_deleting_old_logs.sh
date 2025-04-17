@@ -26,3 +26,4 @@ rm -rf $lin
 done <<< $FILE
 
 #to create file with particular day touch -d 20240801 java.log
+#/home/ec2-user/shell_script/11_deleting_old_logs.sh
