@@ -13,7 +13,7 @@ then
 fi
 for i in {1..10}
 do
-if [ i -eq 1 ]
+if [ $i -eq 1 ]
 then
 echo "creating log files"
 fi
