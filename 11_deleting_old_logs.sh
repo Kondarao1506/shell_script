@@ -2,6 +2,13 @@
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
+USERID=$(id -u)
+
+if [ $USERID -ne 0 ]
+then
+    echo "PLEASE RUN WITH ROOT PRIVILAGES $R sudo sh $0.sh $N"
+    exit 1
+fi
 FILE_DIRECTORY=" /var/log/applogs"
 if [ -d $FILE_DIRECTORY ] # HERE -D is used to check the directory exists or not
 then
